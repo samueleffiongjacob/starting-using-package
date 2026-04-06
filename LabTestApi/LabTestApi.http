@@ -1,0 +1,35 @@
+@LabTestApi_HostAddress = http://localhost:5290
+
+### LabTestApi HTTP Requests
+GET {{LabTestApi_HostAddress}}/api/products
+Accept: application/json
+
+### LabTestApi HTTP Requests ID
+GET {{LabTestApi_HostAddress}}/api/products/1
+Accept: application/json
+###
+POST {{LabTestApi_HostAddress}}/api/products
+Content-Type: application/json
+
+{
+	"name": "Keyboard",
+	"description": "Mechanical keyboard",
+	"price": 79.99
+}
+
+###
+GET {{LabTestApi_HostAddress}}/api/products/2
+
+###
+PUT {{LabTestApi_HostAddress}}/api/products/2
+Content-Type: application/json
+
+{
+	"id": 1,
+	"name": "Keyboard Pro",
+	"description": "Updated mechanical keyboard",
+	"price": 99.99
+}
+
+###
+DELETE {{LabTestApi_HostAddress}}/api/products/2
