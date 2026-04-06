@@ -1,0 +1,6 @@
+@Test_Dependency_Injection_HostAddress = http://localhost:5292
+
+GET {{Test_Dependency_Injection_HostAddress}}/
+Accept: application/json
+
+###

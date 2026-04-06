@@ -1,0 +1,15 @@
+Step To Conduct a Unit Test
+1. setup the test environment
+2.Set up The Mock
+    create mock service
+     - Install the framework with a package manager
+     - Configure The mock service
+     - Simulate behavior of External service
+     - Inject the Mock Service into the component
+     - Run The Component with mock service
+3. Write the unit test.
+    Define unit test
+     - Define output conditions 
+     - Call the Method in the Component
+     - Verify the component's output matches
+4. Use a test runner

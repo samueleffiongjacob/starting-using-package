@@ -1,0 +1,4 @@
+Benefit of Dependency injection
+- loosely coupled
+- increase performance
+- more maintainable
