@@ -1,23 +1,25 @@
 var builder = WebApplication.CreateBuilder(args);
-// middleware
+// Enable request/response logging middleware.
 builder.Services.AddHttpLogging((o) => {});
 var app = builder.Build();
 
+// Middleware order matters: place cross-cutting concerns before endpoints.
 // app.UseRouting();
-//appUseAuthentication();
-//app.UseAuthorization();
-//app.UseExceptionHandler();
+// app.UseAuthentication();
+// app.UseAuthorization();
+// app.UseExceptionHandler();
 app.Use(async (context, next) =>
 {
     Console.WriteLine("Before");
     await next.Invoke();
     Console.WriteLine("After");
 });
-// app.UseEndpoint();
+// app.UseEndpoints();
 
-// all comment are done by order, so if you want to use authentication, you should use it before authorization, and if you want to use exception handler, you should use it before all of them.
+// HttpLogging should run early so it can capture the request and response pipeline.
 app.UseHttpLogging();
 
+// Minimal endpoints used to show middleware execution around requests.
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/test", () => "Test");
 

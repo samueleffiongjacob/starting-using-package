@@ -47,3 +47,22 @@ curl -X DELETE <BASE_URL>/delete
 - `Program.cs`: Contains all endpoint mappings.
 - `appsettings.json` and `appsettings.Development.json`: Configuration files.
 - `requests.http`: Optional local request file for manual testing in VS Code.
+
+## Testing with request.http
+
+### Install the VS Code extension
+
+1. Open VS Code.
+2. Open the Extensions view with `Ctrl+Shift+X`.
+3. Search for `REST Client`.
+4. Install the extension published by `Huachao Mao`.
+5. Open `requests.http` in this folder.
+6. Update the localhost port if your app runs on a different one.
+7. Click `Send Request` above each request line to execute it.
+
+### Suggested test order
+
+1. Run `GET /` to confirm the app is live.
+2. Run `GET /time` to verify dynamic output.
+3. Run `GET /greet/{name}` to test route parameters.
+4. Run `POST /`, `PUT /`, and `DELETE /delete` to test the other HTTP verbs.

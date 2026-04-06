@@ -1,20 +1,24 @@
-GET   http://localhost:5117/
+GET http://localhost:5117/
 ###
-GET   http://localhost:5117/users/samuelestpost/posts/10
+GET http://localhost:5117/users/samuelestpost/posts/10
 
 ###
-GET   http://localhost:5117/products/10
+GET http://localhost:5117/products/10
 
 ###
-GET   http://localhost:5117/products/-5
+GET http://localhost:5117/products/-5
+
 ###
-GET   http://localhost:5117/product/abc
+GET http://localhost:5117/product/abc
+
 ###
-GET   http://localhost:5117/reports/2025
-###GET   
-http://localhost:5117/source/
+GET http://localhost:5117/reports/2025
+
 ###
-http://localhost:5117/files/report.pdf
+GET http://localhost:5117/source/
+
+###
+GET http://localhost:5117/files/report.pdf
 
 ###
 GET http://localhost:5117/search?q=.dotnet&page=2

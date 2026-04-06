@@ -1,20 +1,18 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
+// Basic route parameter example.
 app.MapGet("/", () => "Hello World!");
 app.MapGet("/users/{userId}/posts/{slug}", (int userId, string slug) => {
     return $"User ID: {userId}, Slug: {slug}";
 });
 
+// Route constraint ensures the id is an integer greater than or equal to 0.
 app.MapGet("/products/{id:int:min(0)}", (int id) => {
     return $"Product ID: {id}";
 });
 
-
-app.MapGet("/products/{id:int:min(0)}", (int id) => {
-    return $"Product ID: {id}";
-});
-
+// Optional route parameter example.
 app.MapGet("/reports/{year?}/", (int? year) => {
     if (year.HasValue)
     {
@@ -26,7 +24,7 @@ app.MapGet("/reports/{year?}/", (int? year) => {
     }
 }); 
 
-// define a default value for the year parameter
+// Optional route parameter with a default value.
 app.MapGet("/source/{year?}/", (int? year=2023) => {
     if (year.HasValue)
     {
@@ -38,18 +36,18 @@ app.MapGet("/source/{year?}/", (int? year=2023) => {
     }
 }); 
 
-// catch all route to handle any unmatched routes
+// Catch-all route example for file-style paths.
 app.MapGet("/files/{*filepath}", (string filepath) => {
     return $"Requested file path: {filepath}";
 });
 
-//query string parameters
+// Query string parameters.
 app.MapGet("/search", (string?q, int page =1) => {
     return $"Search query: {q} on page: {page}";    
 });
 
 
-// combine route parameters and query string parameters
+// Mix route parameters, catch-all segments, and query string values.
 app.MapGet("/store/{category}/{productId:int?}/{*extrapath}", (string category, string? extrapath, int? productId, bool instock = true)  => {
     return $"Product: {productId} in category: {category}, path: {extrapath}, in stock: {instock}";
 });
