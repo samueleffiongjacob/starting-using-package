@@ -1,0 +1,20 @@
+@baseUrl = http://localhost:5203
+@secureQuery = secure=true&token=valid-token&input=Test123
+
+### Swagger
+GET {{baseUrl}}/swagger
+
+### Controller routes
+GET {{baseUrl}}/api/demo/ping?{{secureQuery}}
+GET {{baseUrl}}/api/demo/echo?{{secureQuery}}
+GET {{baseUrl}}/api/demo/users/1?{{secureQuery}}
+
+### Minimal routes
+GET {{baseUrl}}/api/routes/ping?{{secureQuery}}
+GET {{baseUrl}}/api/routes/inspect?{{secureQuery}}
+
+### Middleware checks
+GET {{baseUrl}}/api/demo/ping
+GET {{baseUrl}}/api/demo/ping?secure=true&token=bad-token&input=Test123
+GET {{baseUrl}}/api/demo/ping?secure=true&token=valid-token&input=<script>
+GET {{baseUrl}}/api/blocked?{{secureQuery}}
