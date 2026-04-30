@@ -16,11 +16,11 @@ dotnet run
 
 Swagger UI:
 
-- http://localhost:5203/swagger
+- <http://localhost:5203/swagger>
 
 Swagger JSON:
 
-- http://localhost:5203/swagger/v1/swagger.json
+- <http://localhost:5203/swagger/v1/swagger.json>
 
 ## Generate C# API Client
 
